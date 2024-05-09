@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Usuario</title>
+</head>
+<body>
+    <h1>Formulario de Usuario</h1>
+    <!-- {% url 'deleteUser' user.id %} -->
+    <form method="POST" action="">
+        {% csrf_token %}
+        
+        <p>Seguro que quieres elminar a "{{ user.nom }}" ?</p>
+        <button><a href="{% url 'showAll' %}">Volver</a></button>
+        <input type="submit" value="Confirmar">
+    </form>
+</body>
+</html>

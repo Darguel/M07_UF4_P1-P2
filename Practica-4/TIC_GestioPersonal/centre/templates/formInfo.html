@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Usuario</title>
+</head>
+<body>
+    <h1>Informació d'usuaris</h1>
+    
+    <a href= "{% url 'userForm' %}">Afegir usuari</a>
+    <table>
+        <tr>
+            <td><h2>Id</h2></td>
+            <td><h2>Nom</h2></td>
+            <td><h2>Cognoms</h2></td>
+            <td><h2>Assignatures</h2></td>
+            <td><h2>Rol</h2></td>
+        </tr>
+        {% for usuari in usuaris %}
+        <tr>
+            <td><p>{{ usuari.id }}</p></td>
+            <td><p>{{ usuari.nom }}</p></td>
+            <td><p>{{ usuari.cognom }}</p></td>
+            <td><p>{{ usuari.assignatures }}</p></td>
+            <td><p>{{ usuari.rol }}</p></td>
+            <td> <a href="{% url 'userUpdate' usuari.id %}">EDIT</a></td>
+            <td> <a href="{% url 'deleteUser' usuari.id %}">DELETE</a></td>
+        
+        {% endfor %}
+            
+        </tr>
+    </table>   
+</body>
+</html>
